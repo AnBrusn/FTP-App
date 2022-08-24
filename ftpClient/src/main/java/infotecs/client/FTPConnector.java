@@ -3,7 +3,6 @@ package infotecs.client;
 import infotecs.client.exceptions.FTPConnectionException;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.regex.Matcher;
@@ -63,7 +62,7 @@ public class FTPConnector {
     public void connectInActiveMode() throws IOException {
         serverSocket = new ServerSocket(0);
         int localPort = serverSocket.getLocalPort();    // get random host port
-        String inetString = InetAddress.getLocalHost().getHostAddress().replace('.', ',');  // get host IP
+        String inetString = cmdConnection.getLocalAddress().getHostAddress().replace('.', ',');  // get host IP
         // message: "PORT xxx,xxx,xxx,xxx,yyy,zzz   address: ip=xxx.xxx.xxx.xxx port=yyy*256+zzz
         String ip = String.format("%s,%d,%d", inetString, localPort >> 8, localPort & 255);
         cmdWriter.write(String.format("PORT %s%n", ip));    // send the address for data connection to ftp server
