@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "FTP client tests">
+
+    <test name = "Parser tests">
+        <classes>
+            <class name = "infotecs.test.ParserTests" />
+        </classes>
+    </test>
+
+    <test name = "Data tests">
+        <classes>
+            <class name = "infotecs.test.DataTests" />
+        </classes>
+    </test>
+
+    <test name = "FTP connection tests">
+        <classes>
+            <class name = "infotecs.test.FTPConnectorTests" />
+        </classes>
+    </test>
+
+</suite>
